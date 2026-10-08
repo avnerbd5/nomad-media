@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>סטטיסטיקה</title>
+<style>body{font-family:Arial,sans-serif;background:#f4efe6;color:#222;margin:0;padding:24px 16px}
+table{border-collapse:collapse;width:100%;max-width:420px;margin:auto;background:#fff;border-radius:12px;overflow:hidden}
+td{padding:12px 14px;border-bottom:1px solid #eee;font-size:17px}td:last-child{text-align:left;font-weight:bold}
+h1{text-align:center;font-size:20px}</style></head>
+<body><h1>הדף בוואטסאפ — סטטיסטיקה</h1><table id="t"></table>
+<script>
+var R=[["visits","כניסות לדף"],["unique","מבקרים שונים"],["click-ig","לחצו אינסטגרם"],["click-fb","לחצו פייסבוק"],["click-tt","לחצו טיקטוק"],["click-vcf","שמרו איש קשר"],["click-wa","פתחו הודעה בוואטסאפ"]];
+var t=document.getElementById("t");
+R.forEach(function(r){var tr=t.insertRow();tr.insertCell().textContent=r[1];var v=tr.insertCell();v.textContent="…";
+fetch("https://abacus.jasoncameron.dev/get/nomadfamily4/"+r[0]).then(function(x){return x.json()}).then(function(j){v.textContent=j.value>0?j.value:0}).catch(function(){v.textContent="0"})});
+</script></body></html>
